@@ -1,0 +1,123 @@
+body{
+    background-color: rgb(27, 21, 67);
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.first{
+    margin: auto;
+    width: 70%;
+    margin-top: 5%;
+}
+
+@media screen and (max-width:800px){
+    .first{width: 100%;
+        margin-left: 5px;
+        margin-right: 5px;
+     }}
+
+.first p{
+    word-spacing: 5px;
+    line-height: 22px;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+    border-style: groove;
+    border-radius: 20px;
+    padding: 10px 1%;
+    background-color: hsl(327, 88%, 50%);
+}
+
+ a:hover{
+    background-color: aliceblue;
+    color:hsl(327, 88%, 50%) ;
+    padding: 15px 2%;
+}
+
+.second{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 7%;
+    column-gap: 2px;
+}
+
+@media screen and (max-width:800px){
+    .second{grid-template-columns: 1fr;
+
+     }}
+
+.text{
+    margin-left: -100px;
+    word-spacing: 5px;
+    line-height: 22px;
+}
+
+@media screen and (max-width:800px){
+    .text{margin-left: 0px; }}
+
+    @media screen and (max-width:800px){
+        .img img{width: 100%; }}
+
+.third{
+    margin-top: 7%;
+}
+
+.third h1{
+    color: hsl(327, 88%, 50%) ;
+    border-bottom: 3px solid hsl(327, 88%, 50%) ;
+    display: inline-block
+}
+
+
+#ma{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 40px;
+    column-gap: 20px;
+    
+}
+
+#maa,#mo,#moo,#mat{
+    border-style: groove;
+    padding:20px 1%;
+    border-radius: 30px;
+    text-align: center;
+    border-bottom-color:hsl(327, 88%, 50%) ;
+    border-top-color: hsl(327, 62%, 73%);
+}
+
+@media screen and (max-width:800px){
+    #ma{grid-template-columns: 1fr;
+
+     }}
+
+
+ .fourth{
+    margin-top: 7%;
+    text-align: center;
+    line-height: 30px;
+ }
+
+ .fourth h2{
+    color: hsl(327, 88%, 50%) ;
+    border-bottom: 3px solid hsl(327, 88%, 50%) ;
+    display: inline-block ;
+ }
+ 
+ button{
+    text-decoration: none;
+    color: aliceblue;
+    border-style: groove;
+    border-radius: 20px;
+    padding:15px 2% ;
+    background-color: hsl(327, 88%, 50%);
+ }
+
+ button:hover{
+    background-color: aliceblue;
+    color:hsl(327, 88%, 50%) ;
+    padding:  10px 5%;
+}
+ 
