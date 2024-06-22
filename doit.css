@@ -113,7 +113,14 @@ a{
     border-radius: 20px;
     padding:15px 2% ;
     background-color: hsl(327, 88%, 50%);
+     margin-top: 2%;
  }
+
+::placeholder{
+    text-align: center;
+    justify-content: center;
+}
+ 
 
  button:hover{
     background-color: aliceblue;
