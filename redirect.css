@@ -1,0 +1,52 @@
+body{
+    background-color: lightblue;
+}
+
+.main{
+    margin: auto;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    background-image: url("8.jpg");
+    margin-top: 10%;
+    padding: 50px;
+    color:black;
+}
+
+.first{
+    font-size: 10vh;
+    font-family: cursive;
+    -webkit-text-stroke: 2px;
+}
+
+.second{
+    font-size: 5vh;
+    font-family: cursive;
+    -webkit-text-stroke: 2px;
+}
+
+.third{
+    font-size: 8vh;
+    font-family: cursive;
+    -webkit-text-stroke: 2px;
+}
+
+.an{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.an a{
+    text-decoration: none;
+    font-size: x-large;
+    border: 2px solid white;
+    padding: 7px 3%;
+    border-radius: 20px;
+    color: black;
+}
+
+.an a:hover{
+    background-color: black;
+    color: lightblue;
+}
