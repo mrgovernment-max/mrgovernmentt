@@ -206,7 +206,8 @@ books.innerHTML =`<h3>AVAILABLE BOOKS</h3> ${total} <br> ${query.sort().join('')
                // Append filtered items to the list
                filteredArray.forEach(item => {
                    const li = document.createElement('li');
-                   li.innerHTML =`  <button>select</button>  <br> ${item}  `;
+                   li.innerHTML = `<button onclick="selectBook()">select</button> <br> ${item}`;
+
                    list.appendChild(li);
                });
 
@@ -242,6 +243,16 @@ books.innerHTML =`<h3>AVAILABLE BOOKS</h3> ${total} <br> ${query.sort()} `;
 
 
    
+}
+
+function selectBook(){
+
+   alert(`Book is added`)
+   const list = document.getElementById("list");
+   list.innerHTML = "";
+   const inputElemnt = document.getElementById("max");
+   inputElemnt.value = "";
+
 }
 
 
