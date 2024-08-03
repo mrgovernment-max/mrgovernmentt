@@ -1,0 +1,255 @@
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+
+      <style>
+
+         body{
+            background-color: rgba(123, 232, 130,0.3);
+            
+         }
+
+         input::placeholder{
+      text-align: center;}
+
+      .container{
+         width: 100%;
+         justify-content: center;
+      
+      }
+
+      #list{
+         line-height: 20px;
+      }
+      
+      .containers{
+         text-align: center;
+         margin: auto;
+         border:  hidden azure;
+         border-radius: 18px;
+         width: 50%;
+         padding: 30px;
+         padding-bottom: 10px;
+         margin-top: 1%;
+         box-shadow: 10px 8px 5px 12px rgba(236, 222, 222,0.5);
+         background-color: aliceblue;
+         font-family:cursive;
+         word-spacing: 10px;
+         
+      }
+
+      @media screen and (max-width:800px){
+    .containers{width: 100%;}}
+
+         
+      #books{
+         text-align: center;
+         margin: auto;
+         line-height: 35px;
+         border:  hidden azure;
+         border-radius: 18px;
+         width:100%;
+         padding: 30px;
+         padding-bottom: 10px;
+         margin-top: 5%;
+         background-color: rgba(61, 61, 38,0.5);
+         
+       
+         
+      }
+      
+
+      #books li{
+         list-style-type: disc;
+      }
+
+
+
+      input{
+         border: 5px solid rgb(207, 185, 185);
+         padding: 10px;
+         border-radius: 5px;
+         width: 50%;
+      }
+
+      li{
+         list-style-type: none;
+         text-align: center;
+      }
+      i{
+         font-size: 22px;
+      }
+
+      p{
+         font-size: 14px;
+      }
+
+      .products{
+         display: grid;
+         grid-template-columns: 1fr 1fr 1fr;
+         row-gap: 15px;
+         column-gap: 15px;
+         margin-top: 5%;
+         
+      }
+
+      .Headphones{
+         text-align: center;
+         margin: auto;
+         border:  hidden azure;
+         border-radius: 10px;
+         background-color: rgba(6, 16, 19, 0.1);
+         width: 95%;
+
+      }
+
+      img{
+         width: 225px;
+         height: 122px;
+      }
+
+      h3{
+         border-bottom: 5px solid white;
+         display: inline;
+         border-radius: 3px;
+      }
+      
+         
+      
+         </style>
+       <meta charset="UTF-8">
+       <script src="https://kit.fontawesome.com/a47fc389f5.js" crossorigin="anonymous"></script>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Live Search</title>
+   </head>
+   <body>
+
+      <div class="container">
+         <div class="containers">
+
+            <h2>S.B.M.S LIBRARY</h2><i class="fa-solid fa-star fa-bounce" style="color: #74C0FC;"></i>
+       <input id="max" type="text" placeholder="search for books" oninput="searchBar()">
+       <i class="fa-solid fa-star fa-bounce" style="color: #74C0FC;"></i>
+      
+       <!--Added Books-->
+   
+       <ul id="list"></ul>
+         </div>
+
+         <!--Books in library-->
+         <div id="books">
+            <!--from java Array (query)-->
+         </div>
+
+
+      </div>
+
+
+
+   
+
+
+       <script>
+           // Array of items
+           const query = [
+  "Do Androids Dream of Electric Sheep? <br>",
+  "The Hitchhiker Guide to the Galaxy  <br>",
+  "Something Wicked This Way Comes  <br>",
+  "A Story of Yesterday  <br>",
+  "Pride and Prejudice and Zombies  <br>",
+  "The Curious Incident of the Dog in the Night-Time  <br>",
+  "To Kill a Mockingbird  <br>",
+  "I Was Told There'd Be Cake: Essays  <br>",
+  "The Unbearable Lightness of Being  <br>",
+  "The Hollow Chocolate Bunnies of the Apocalypse  <br>",
+  "1984  <br>",
+  "Brave New World  <br>",
+  "The Great Gatsby  <br>",
+  "Catch-22  <br>",
+  "One Hundred Years of Solitude  <br>",
+  "Slaughterhouse-Five  <br>",
+  "Fahrenheit 451  <br>",
+  "The Catcher in the Rye  <br>",
+  "Crime and Punishment  <br>",
+  "The Road  <br>"
+];
+
+//total books in library
+const total = query.length;
+
+//sort books from a-z
+query.sort();
+const books = document.getElementById("books")
+
+books.innerHTML =`<h3>AVAILABLE BOOKS</h3> ${total} <br> ${query.sort().join('')}  `;
+
+
+
+
+           
+
+
+           function searchBar() {
+               // Get the list in HTML
+               const list = document.getElementById("list");
+   
+               // Clear previous results
+               list.innerHTML = '';
+
+                 // Get user's input
+             const input = document.getElementById("max").value.toUpperCase();
+             
+   
+               // Filter the array based on the input
+               const filteredArray = query.filter(item => item.toUpperCase().includes(input));
+   
+               // Append filtered items to the list
+               filteredArray.forEach(item => {
+                   const li = document.createElement('li');
+                   li.innerHTML =`  <button>select</button>  <br> ${item}  `;
+                   list.appendChild(li);
+               });
+
+               if (filteredArray.length === 0  ) {
+    list.innerHTML =  `<button onclick="addItem()">Add Book</button>`;
+   
+}
+               if (input === ""){
+   const list = document.getElementById("list");
+   list.innerHTML = ""
+
+}
+
+
+               
+           }
+
+
+function addItem() {
+     // Get user's input
+     const input = document.getElementById("max").value.toUpperCase();
+             
+    const inputElemnt = document.getElementById("max");
+    query.push(`${input} <br>`);
+    inputElemnt.value = "";
+    list.innerHTML = "";
+
+    const total = query.length;
+    const books = document.getElementById("books")
+
+books.innerHTML =`<h3>AVAILABLE BOOKS</h3> ${total} <br> ${query.sort()} `;
+
+
+
+   
+}
+
+
+
+
+
+       </script>
+   </body>
+   </html>
+   
+
