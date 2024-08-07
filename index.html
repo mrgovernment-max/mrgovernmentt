@@ -234,7 +234,7 @@ function addItem() {
     const total = query.length;
     const books = document.getElementById("books")
 
-books.innerHTML =`<h3>AVAILABLE BOOKS</h3> ${total} <br> ${query.sort()} `;
+books.innerHTML =`<h3>AVAILABLE BOOKS</h3> ${total} <br> ${query.sort().join('')}  `;
 
 
 
