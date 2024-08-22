@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        body {
+            background-color: rgb(13, 25, 28);
+        }
+
+        #main-container {
+            width: 100%;
+            margin-top: 1%;
+            min-height: 10vh;
+            position: relative;
+        }
+
+        @media screen and (max-width:800px){
+   #main-container{margin-top: 15%;}}
+
+
+        #sub-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #dropdown {
+            word-spacing: 50px;
+        }
+
+        #dropbtn {
+            padding: 15px;
+            background-color: rgb(184, 254, 254);
+            border-radius: 10px;
+            border: hidden;
+        }
+
+        #dropbtn:hover {
+            background-color: black;
+            color: white;
+            transition: 1s;
+        }
+
+        select {
+            padding: 10px;
+        }
+
+        select:hover {
+            background-color: black;
+            color: white;
+            transition: 1s;
+        }
+
+        #car-display {
+            width: 100%;
+            margin-top: 8%;
+        }
+
+        video {
+            width: 100%;
+            height: 450px;
+        }
+
+       #text{
+            margin: auto;
+            text-align: center;
+            width: 100%;
+            margin-top: 2%;
+            position: absolute;
+            z-index: -1;
+        }
+
+        @media screen and (max-width:800px){
+   #text p{margin-top: 20%;}}
+
+        #name{
+            text-align: center;
+            font-size: 10vh;
+            font-family:  "Montserrat",sans-serif;   
+            color: rgb(184, 254, 254);
+        }
+
+        @media screen and (max-width:800px){
+   #text p{font-size: 5vh;}}
+
+   #first-container{
+    width: 100%;
+    margin-top: 5%;
+    display: none;
+    margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+ 
+   }
+   @media screen and (max-width:800px){
+   #first-container{grid-template-columns: 1fr;
+    margin-top: 1px;    
+}}
+   
+   #first-sub{
+    min-height: 30vh;
+    margin-left: 3%;
+    word-spacing: 17px;
+    text-align: justify;
+    font-size: large;
+    line-height: 25px;
+    max-width: 80%;
+    background-color: rgba(50, 141, 56, 0.2);
+    color: rgb(138, 157, 173);
+    padding: 20px;
+    border-radius: 20px;
+   }
+
+   @media screen and (max-width:800px){
+   #first-sub{word-spacing: normal;}}
+
+   #second-sub{
+    min-height: 30vh;
+    text-align: center;
+    margin-right: 3%;
+    font-size: large;
+    line-height: 30px;
+    max-width: 80%;
+    background-color: rgba(47, 196, 57, 0.6);
+    color: rgb(166, 185, 201);
+    padding: 20px;
+    border-radius: 20px;
+   }
+
+   h1{
+    color:aliceblue ;
+    display: inline;
+    margin-left: 3%;
+    text-align: center;
+   }
+
+    </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,
+    100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;
+    1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+</head>
+<body>
+
+    <div id="main-container">
+        <div id="sub-container">
+            <div id="dropdown">
+                <button id="dropbtn">Explore Vehicle</button>
+                <select name="cars" id="cars">
+                    <option value="car1">Car1</option>
+                    <option value="car2">Car2</option>
+                    <option value="car3">Car3</option>
+                    <option value="car4">Car4</option>
+                    <option value="car5">Car5</option>
+                </select>
+
+            </div>
+      
+           
+        </div>
+        <div id="text">
+            <p id="name">  </p>
+        </div>
+    </div>
+
+    <div id="car-display">
+        <audio id="audio" src=""></audio>
+        <video id="video" src="" loop muted>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <footer>
+
+        
+
+        <div id="first-container">
+
+            
+
+
+            <section id="first-sub">
+             
+                </section>
+            <section id="second-sub">
+                
+
+
+                
+            </section>
+
+
+            
+
+
+        </div>
+
+
+
+    </footer>
+
+    <script>
+
+        class deal {
+            constructor(Name, Number,  Location , PriceRange, Availability ){
+                this.Name = Name,
+                this.Number = Number,
+                this.Location = Location,
+                this.PriceRange = PriceRange,
+                this.Availability =Availability
+            }
+        }
+
+        const Emmanuel = new deal("Emman",
+                                '0559220886',
+                                "Bedford",
+                                " $23,000.00 -  $25,000.00",
+                                "Rent and Sell"
+                                )
+
+
+
+        document.getElementById("dropbtn").addEventListener('click', displayCars);
+
+        let isMusicplaying = false;
+
+        function displayCars() {
+            const selectedCar = document.getElementById("cars").value;
+            const audioElement = document.getElementById("audio");
+            const videoElement = document.getElementById("video");
+            const Carname = document.getElementById("name");
+            const sellerDetails = document.getElementById("second-sub");
+            const product = document.getElementById("first-sub");
+            
+
+
+         
+
+            //set the audio to autoplay
+            audioElement.setAttribute("loop",true);
+
+            
+
+            if(!isMusicplaying){
+                     // Set the audio src
+                    audioElement.src = "Asake_ft_Wizkid_-_MMS.mp3";
+                     audioElement.play();
+                    isMusicplaying = true;
+            }
+
+            // Set the video src based on the selected car
+            switch (selectedCar) {
+                case 'car1':
+                    videoElement.src = "car1.mp4";
+                    Carname.innerHTML = "CHERVOLET";
+
+                    product.innerHTML = `   <h1>DESCRIPTION </h1><br><br>
+The 2024 Chevrolet Malibu is a stylish and affordable midsize sedan starting at approximately $25,000.00
+Features a turbocharged engine, advanced safety technology, and a modern infotainment system. 
+Known for its blend of comfort and performance,
+the Malibu offers excellent value for those seeking a reliable and well-equipped vehicle
+
+ <br><br>
+ <h1> PRICING</h1><br>
+ <h3>$25,000.00</h3>`
+
+                    sellerDetails.innerHTML = `<h1>Seller Details</h1><br>
+                Name &#128113; :${Emmanuel.Name}   <br>
+                Tell.Number &#128241;:${Emmanuel.Number}  <br>
+                Location &#128205;:${Emmanuel.Location}   <br>
+                Price Range &#128181; : ${Emmanuel.PriceRange}  <br>
+                Availability &#10004;  :${Emmanuel.Availability}`
+                    break;
+
+
+                case 'car2':
+                    videoElement.src = "car2.mp4";
+                    Carname.innerHTML = "LAMBO"
+                    break;
+
+
+                case 'car3':
+                    videoElement.src = "car3.mp4";
+                    Carname.innerHTML = "ROLLS ROYCE"
+                    break;
+
+                case 'car4':
+                    videoElement.src = "car4.mp4";
+                    Carname.innerHTML = "Toyota"
+                    break;
+
+                case 'car5':
+                    videoElement.src = "car5.mp4";
+                    Carname.innerHTML = "4x4"
+                    break;
+
+
+                default:
+                    console.log("Car not recognized");
+                    return;
+            }
+
+            // Add the autoplay attribute and start playing the video
+            videoElement.setAttribute("autoplay", true);
+         
+        }
+    </script>
+    
+</body>
+</html>
