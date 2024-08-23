@@ -154,9 +154,9 @@
             <div id="dropdown">
                 <button id="dropbtn">Explore Vehicle</button>
                 <select name="cars" id="cars">
-                    <option value="car1">Car1</option>
-                    <option value="car2">Car2</option>
-                    <option value="car3">Car3</option>
+                    <option value="car1">Chevrolet</option>
+                    <option value="car2">Lambo</option>
+                    <option value="car3">Rolls-Royce</option>
                     <option value="car4">Car4</option>
                     <option value="car5">Car5</option>
                 </select>
@@ -166,7 +166,7 @@
            
         </div>
         <div id="text">
-            <p id="name">  </p>
+            <p id="name">Select vehicle and click "Explore Vehicle" </p>
         </div>
     </div>
 
@@ -225,7 +225,18 @@
                                 "Rent and Sell"
                                 )
 
-
+      const Prince = new deal  ("Prince",
+                                '02459220889',
+                                "Berekum",
+                                " $20,000.00 -  $23,500.00",
+                                " Sell Only"
+                                )
+      const Paa = new deal  ("Paa",
+                                '0569220889',
+                                "Sunyani",
+                                " $90,000.00 -  $93,500.00",
+                                " Sell Only"
+                                )
 
         document.getElementById("dropbtn").addEventListener('click', displayCars);
 
@@ -282,13 +293,52 @@ the Malibu offers excellent value for those seeking a reliable and well-equipped
 
                 case 'car2':
                     videoElement.src = "car2.mp4";
-                    Carname.innerHTML = "LAMBO"
+                    Carname.innerHTML = "LAMBO";
+
+                    product.innerHTML = `   <h1>DESCRIPTION </h1><br><br>
+                    Lamborghini, an emblem of automotive excellence, epitomizes power, precision, and prestige.
+                     Each Lamborghini model is a symphony of engineering brilliance, sculpted with aerodynamic mastery. 
+                     From the iconic Aventador to the sleek Huracán, these supercars redefine speed, turning every road 
+                     into a canvas for adrenaline-fueled artistry.Owning a Lamborghini is not just about driving; it is
+                      about embracing a legacy—a roaring testament to human ingenuity and unbridled passion. 🏎️🔥
+
+ <br><br>
+ <h1> PRICING</h1><br>
+ <h3>$22,000.00</h3>`
+
+ sellerDetails.innerHTML = `<h1>Seller Details</h1><br>
+                Name &#128113; :${Prince.Name}   <br>
+                Tell.Number &#128241;:${Prince.Number}  <br>
+                Location &#128205;:${Prince.Location}   <br>
+                Price Range &#128181; : ${Prince.PriceRange}  <br>
+                Availability &#10004;  :${Prince.Availability}`
+
                     break;
 
 
                 case 'car3':
                     videoElement.src = "car3.mp4";
-                    Carname.innerHTML = "ROLLS ROYCE"
+                    Carname.innerHTML = "ROLLS ROYCE";
+                    product.innerHTML = `   <h1>DESCRIPTION </h1><br><br>
+                Rolls-Royce, an enduring symbol of automotive excellence, transcends mere transportation.
+                The Spirit of Ecstasy, perched gracefully on the hood, embodies elegance and aspiration.
+              Rolls-Royce cabins are unparalleled, adorned with the finest leathers and woods.
+               Attention to detail is an art form—the stitching, veneers, and personalized touches elevate luxury. 
+   Rolls-Royce is not just about cars; it is about legacy, craftsmanship, and the pursuit of perfection. 🌟🚗
+
+ <br><br>
+ <h1> PRICING</h1><br>
+ <h3>$92,000.00</h3>`
+
+
+ sellerDetails.innerHTML = `<h1>Seller Details</h1><br>
+                Name &#128113; :${Paa.Name}   <br>
+                Tell.Number &#128241;:${Paa.Number}  <br>
+                Location &#128205;:${Paa.Location}   <br>
+                Price Range &#128181; : ${Paa.PriceRange}  <br>
+                Availability &#10004;  :${Paa.Availability}`
+
+
                     break;
 
                 case 'car4':
