@@ -1,172 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <style>
         body {
-            background-color: rgb(13, 25, 28);
+            background-color: #1e2a30;
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         #main-container {
             width: 100%;
-            margin-top: 1%;
-            min-height: 10vh;
+            padding: 2% 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
 
-        @media screen and (max-width:800px){
-   #main-container{margin-top: 15%;}}
-
-
-        #sub-container {
-            position: absolute;
-            top: 0;
-            left: 0;
+        @media screen and (max-width: 800px) {
+            #main-container {
+                padding: 10% 5% 5%;
+            }
         }
 
         #dropdown {
-            word-spacing: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5%;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 800px) {
+            #dropdown {
+                margin-top: 10%;
+            }
         }
 
         #dropbtn {
-            padding: 15px;
-            background-color: rgb(184, 254, 254);
-            border-radius: 10px;
-            border: hidden;
+            padding: 12px 20px;
+            background-color: #1abc9c;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         #dropbtn:hover {
-            background-color: black;
-            color: white;
-            transition: 1s;
+            background-color: #16a085;
+            color: #f9f9f9;
         }
 
         select {
-            padding: 10px;
+            padding: 12px 20px;
+            border: 2px solid #1abc9c;
+            border-radius: 8px;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         select:hover {
-            background-color: black;
-            color: white;
-            transition: 1s;
+            background-color: #869290;
+            color: #fff;
         }
 
         #car-display {
             width: 100%;
-            margin-top: 8%;
+            margin-top: 20px;
+            text-align: center;
         }
 
         video {
             width: 100%;
-            height: 450px;
+            height: auto;
+            max-height: 450px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-       #text{
-            margin: auto;
+        #text {
+            margin-top: 20px;
             text-align: center;
-            width: 100%;
-            margin-top: 2%;
-            position: absolute;
-            z-index: -1;
         }
 
-        @media screen and (max-width:800px){
-   #text p{margin-top: 20%;}}
+        #name {
+            font-size: 28px;
+            color: #1abc9c;
+        }
 
-        #name{
+        @media screen and (max-width: 800px) {
+            #name {
+                font-size: 24px;
+            }
+        }
+
+        #first-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 800px) {
+            #first-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #first-sub, #second-sub {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d0d0d0;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #first-sub {
+            min-height: 30vh;
+            word-spacing: 1px;
+        }
+
+        #second-sub {
+            min-height: 30vh;
             text-align: center;
-            font-size: 10vh;
-            font-family:  "Montserrat",sans-serif;   
-            color: rgb(184, 254, 254);
         }
 
-        @media screen and (max-width:800px){
-   #text p{font-size: 5vh;}}
+        footer {
+            padding: 20px;
+            background-color: #1e2a30;
+            color: #e0e0e0;
+            text-align: center;
+        }
 
-   #first-container{
-    width: 100%;
-    margin-top: 5%;
+        h1 {
+            color: #f0f0f0;
+            margin-bottom: 20px;
+                font-size: 24px;
+            }
+      
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: none;
-    margin-bottom: 2%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
- 
-   }
-   @media screen and (max-width:800px){
-   #first-container{grid-template-columns: 1fr;
-    margin-top: 1px;    
-}}
-   
-   #first-sub{
-    min-height: 30vh;
-    margin-left: 3%;
-    word-spacing: 17px;
-    text-align: justify;
-    font-size: large;
-    line-height: 25px;
-    max-width: 80%;
-    background-color: rgba(50, 141, 56, 0.2);
-    color: rgb(138, 157, 173);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+    
+}
+
+#pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%, -50%);
+    max-width: 300px;
+    width: 90%;
+    background-color: white;
+    color: black;
     padding: 20px;
-    border-radius: 20px;
-   }
-
-   @media screen and (max-width:800px){
-   #first-sub{word-spacing: normal;}}
-
-   #second-sub{
-    min-height: 30vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
     text-align: center;
-    margin-right: 3%;
-    font-size: large;
-    line-height: 30px;
-    max-width: 80%;
-    background-color: rgba(47, 196, 57, 0.6);
-    color: rgb(166, 185, 201);
-    padding: 20px;
-    border-radius: 20px;
-   }
+    border: 1px solid #ccc;
+}
 
-   h1{
-    color:aliceblue ;
-    display: inline;
-    margin-left: 3%;
-    text-align: center;
-   }
+#pop-up p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#pop-up button {
+    background-color: #16a085;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#pop-up button:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+#pop-up button:active {
+    background-color: #16a085;
+    transform: scale(0.95);
+}
+
+@media screen and (max-width: 800px) {
+    #pop-up {
+        width: 80%;
+        padding: 15px;
+    }
+
+    #pop-up button {
+        width: 100%;
+        padding: 12px;
+        margin: 5px 0;
+    }
+}
+
+#music-question-btn {
+    background-color: #3498db; /* Primary color */
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#music-question-btn:hover {
+    background-color: #2980b9; /* Darker shade for hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#music-question-btn:active {
+    background-color: #1f6d9d; /* Even darker shade for active state */
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#music-question-btn:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+
 
     </style>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,
-    100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;
-    1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cars</title>
 </head>
 <body>
-
     <div id="main-container">
-        <div id="sub-container">
-            <div id="dropdown">
-                <button id="dropbtn">Explore Vehicle</button>
-                <select name="cars" id="cars">
-                    <option value="car1">Chevrolet</option>
-                    <option value="car2">Lambo</option>
-                    <option value="car3">Rolls-Royce</option>
-                    <option value="car4">Car4</option>
-                    <option value="car5">Car5</option>
-                </select>
+        <button onclick="showPopup()" id="music-question-btn"> background music?</button>
 
-            </div>
-      
-           
+        <div id="overlay"></div>
+        <div id="pop-up">
+            <p>Like Music?</p>
+            <button onclick="Playingmusic()" id="yes-btn">Yes</button>
+            <button onclick="stopPlayingmusic()" id="no-btn">No</button>
+        </div>
+
+        <div id="dropdown">
+            <button id="dropbtn">Explore Product</button>
+            <select name="cars" id="cars">
+                <option value="car1">Chevrolet</option>
+                <option value="car2">Lambo</option>
+                <option value="car3">Rolls-Royce</option>
+                <option value="car4">Toyota</option>
+                <option value="car5">4x4</option>
+            </select>
         </div>
         <div id="text">
-            <p id="name">Select vehicle and click "Explore Vehicle" </p>
+            <p id="name">Select product and click "Explore Product"</p>
         </div>
     </div>
 
@@ -178,190 +293,153 @@
     </div>
 
     <footer>
-
-        
-
         <div id="first-container">
-
-            
-
-
-            <section id="first-sub">
-             
-                </section>
-            <section id="second-sub">
-                
-
-
-                
-            </section>
-
-
-            
-
-
+            <section id="first-sub"></section>
+            <section id="second-sub"></section>
         </div>
-
-
-
     </footer>
 
+  
     <script>
-
-        class deal {
-            constructor(Name, Number,  Location , PriceRange, Availability ){
-                this.Name = Name,
-                this.Number = Number,
-                this.Location = Location,
-                this.PriceRange = PriceRange,
-                this.Availability =Availability
+        class Deal {
+            constructor(name, number, location, priceRange, availability) {
+                this.name = name;
+                this.number = number;
+                this.location = location;
+                this.priceRange = priceRange;
+                this.availability = availability;
             }
         }
 
-        const Emmanuel = new deal("Emman",
-                                '0559220886',
-                                "Bedford",
-                                " $23,000.00 -  $25,000.00",
-                                "Rent and Sell"
-                                )
-
-      const Prince = new deal  ("Prince",
-                                '02459220889',
-                                "Berekum",
-                                " $20,000.00 -  $23,500.00",
-                                " Sell Only"
-                                )
-      const Paa = new deal  ("Paa",
-                                '0569220889',
-                                "Sunyani",
-                                " $90,000.00 -  $93,500.00",
-                                " Sell Only"
-                                )
+        const Emmanuel = new Deal("Emman", '0559220886', "Bedford", "$23,000.00 - $25,000.00", "Rent and Sell");
+        const Prince = new Deal("Prince", '02459220889', "Berekum", "$20,000.00 - $23,500.00", "Sell Only");
+        const Paa = new Deal("Paa", '0569220889', "Sunyani", "$90,000.00 - $93,500.00", "Sell Only");
 
         document.getElementById("dropbtn").addEventListener('click', displayCars);
 
-        let isMusicplaying = false;
+        let isMusicPlaying = false;
 
         function displayCars() {
             const selectedCar = document.getElementById("cars").value;
-            const audioElement = document.getElementById("audio");
+           
             const videoElement = document.getElementById("video");
-            const Carname = document.getElementById("name");
+            const carName = document.getElementById("name");
             const sellerDetails = document.getElementById("second-sub");
             const product = document.getElementById("first-sub");
-            
-
-
-         
-
-            //set the audio to autoplay
-            audioElement.setAttribute("loop",true);
+          
 
             
 
-            if(!isMusicplaying){
-                     // Set the audio src
-                    audioElement.src = "Asake_ft_Wizkid_-_MMS.mp3";
-                     audioElement.play();
-                    isMusicplaying = true;
-            }
-
-            // Set the video src based on the selected car
             switch (selectedCar) {
                 case 'car1':
                     videoElement.src = "car1.mp4";
-                    Carname.innerHTML = "CHERVOLET";
-
-                    product.innerHTML = `   <h1>DESCRIPTION </h1><br><br>
-The 2024 Chevrolet Malibu is a stylish and affordable midsize sedan starting at approximately $25,000.00
-Features a turbocharged engine, advanced safety technology, and a modern infotainment system. 
-Known for its blend of comfort and performance,
-the Malibu offers excellent value for those seeking a reliable and well-equipped vehicle
-
- <br><br>
- <h1> PRICING</h1><br>
- <h3>$25,000.00</h3>`
-
-                    sellerDetails.innerHTML = `<h1>Seller Details</h1><br>
-                Name &#128113; :${Emmanuel.Name}   <br>
-                Tell.Number &#128241;:${Emmanuel.Number}  <br>
-                Location &#128205;:${Emmanuel.Location}   <br>
-                Price Range &#128181; : ${Emmanuel.PriceRange}  <br>
-                Availability &#10004;  :${Emmanuel.Availability}`
+                    carName.innerHTML = "Chevrolet";
+                    product.innerHTML = `
+                        <h1>DESCRIPTION</h1>
+                        <p>The 2024 Chevrolet Malibu is a stylish and affordable midsize sedan starting at approximately $25,000.00. Features a turbocharged engine, advanced safety technology, and a modern infotainment system. Known for its blend of comfort and performance, the Malibu offers excellent value for those seeking a reliable and well-equipped vehicle.</p>
+                        <h1>PRICING</h1>
+                        <h3>$25,000.00</h3>`;
+                    sellerDetails.innerHTML = `
+                        <h1>Seller Details</h1>
+                        <p>Name: ${Emmanuel.name}</p>
+                        <p>Tell.Number: ${Emmanuel.number}</p>
+                        <p>Location: ${Emmanuel.location}</p>
+                        <p>Price Range: ${Emmanuel.priceRange}</p>
+                        <p>Availability: ${Emmanuel.availability}</p>`;
                     break;
-
 
                 case 'car2':
                     videoElement.src = "car2.mp4";
-                    Carname.innerHTML = "LAMBO";
-
-                    product.innerHTML = `   <h1>DESCRIPTION </h1><br><br>
-                    Lamborghini, an emblem of automotive excellence, epitomizes power, precision, and prestige.
-                     Each Lamborghini model is a symphony of engineering brilliance, sculpted with aerodynamic mastery. 
-                     From the iconic Aventador to the sleek Huracán, these supercars redefine speed, turning every road 
-                     into a canvas for adrenaline-fueled artistry.Owning a Lamborghini is not just about driving; it is
-                      about embracing a legacy—a roaring testament to human ingenuity and unbridled passion. 🏎️🔥
-
- <br><br>
- <h1> PRICING</h1><br>
- <h3>$22,000.00</h3>`
-
- sellerDetails.innerHTML = `<h1>Seller Details</h1><br>
-                Name &#128113; :${Prince.Name}   <br>
-                Tell.Number &#128241;:${Prince.Number}  <br>
-                Location &#128205;:${Prince.Location}   <br>
-                Price Range &#128181; : ${Prince.PriceRange}  <br>
-                Availability &#10004;  :${Prince.Availability}`
-
+                    carName.innerHTML = "Lambo";
+                    product.innerHTML = `
+                        <h1>DESCRIPTION</h1>
+                        <p>Lamborghini, an emblem of automotive excellence, epitomizes power, precision, and prestige. Each Lamborghini model is a symphony of engineering brilliance, sculpted with aerodynamic mastery. From the iconic Aventador to the sleek Huracán, these supercars redefine speed, turning every road into a canvas for adrenaline-fueled artistry. Owning a Lamborghini is not just about driving; it is about embracing a legacy—a roaring testament to human ingenuity and unbridled passion.</p>
+                        <h1>PRICING</h1>
+                        <h3>$22,000.00</h3>`;
+                    sellerDetails.innerHTML = `
+                        <h1>Seller Details</h1>
+                        <p>Name: ${Prince.name}</p>
+                        <p>Tell.Number: ${Prince.number}</p>
+                        <p>Location: ${Prince.location}</p>
+                        <p>Price Range: ${Prince.priceRange}</p>
+                        <p>Availability: ${Prince.availability}</p>`;
                     break;
-
 
                 case 'car3':
                     videoElement.src = "car3.mp4";
-                    Carname.innerHTML = "ROLLS ROYCE";
-                    product.innerHTML = `   <h1>DESCRIPTION </h1><br><br>
-                Rolls-Royce, an enduring symbol of automotive excellence, transcends mere transportation.
-                The Spirit of Ecstasy, perched gracefully on the hood, embodies elegance and aspiration.
-              Rolls-Royce cabins are unparalleled, adorned with the finest leathers and woods.
-               Attention to detail is an art form—the stitching, veneers, and personalized touches elevate luxury. 
-   Rolls-Royce is not just about cars; it is about legacy, craftsmanship, and the pursuit of perfection. 🌟🚗
-
- <br><br>
- <h1> PRICING</h1><br>
- <h3>$92,000.00</h3>`
-
-
- sellerDetails.innerHTML = `<h1>Seller Details</h1><br>
-                Name &#128113; :${Paa.Name}   <br>
-                Tell.Number &#128241;:${Paa.Number}  <br>
-                Location &#128205;:${Paa.Location}   <br>
-                Price Range &#128181; : ${Paa.PriceRange}  <br>
-                Availability &#10004;  :${Paa.Availability}`
-
-
+                    carName.innerHTML = "Rolls-Royce";
+                    product.innerHTML = `
+                        <h1>DESCRIPTION</h1>
+                        <p>Rolls-Royce, an enduring symbol of automotive excellence, transcends mere transportation. The Spirit of Ecstasy, perched gracefully on the hood, embodies elegance and aspiration. Rolls-Royce cabins are unparalleled, adorned with the finest leathers and woods. Attention to detail is an art form—the stitching, veneers, and personalized touches elevate luxury. Rolls-Royce is not just about cars; it is about legacy, craftsmanship, and the pursuit of perfection.</p>
+                        <h1>PRICING</h1>
+                        <h3>$92,000.00</h3>`;
+                    sellerDetails.innerHTML = `
+                        <h1>Seller Details</h1>
+                        <p>Name: ${Paa.name}</p>
+                        <p>Tell.Number: ${Paa.number}</p>
+                        <p>Location: ${Paa.location}</p>
+                        <p>Price Range: ${Paa.priceRange}</p>
+                        <p>Availability: ${Paa.availability}</p>`;
                     break;
 
                 case 'car4':
                     videoElement.src = "car4.mp4";
-                    Carname.innerHTML = "Toyota"
+                    carName.innerHTML = "Toyota";
                     break;
 
                 case 'car5':
                     videoElement.src = "car5.mp4";
-                    Carname.innerHTML = "4x4"
+                    carName.innerHTML = "4x4";
                     break;
-
 
                 default:
                     console.log("Car not recognized");
                     return;
             }
 
-            // Add the autoplay attribute and start playing the video
             videoElement.setAttribute("autoplay", true);
-         
         }
-    </script>
+
+        function showPopup(){
+            const popup = document.getElementById("pop-up");
+            popup.style.display = "inline";
+            const overlay = document.getElementById("overlay");
+            overlay.style.display = "inline";
+        }
+
+function stopPlayingmusic(){
+    const audioElement = document.getElementById("audio");
+    audioElement.pause();
+    const musicButton =document.getElementById("music-question-btn");
+    musicButton.style.display = "none";
+    clearPopup()
+   
+}
+
+function clearPopup(){
+    const popup = document.getElementById("pop-up");
+            popup.style.display = "none";
+            const overlay = document.getElementById("overlay");
+            overlay.style.display = "none";
+}
+
+
+function Playingmusic(){
+    const audioElement = document.getElementById("audio");
     
+    audioElement.setAttribute("loop", true);
+
+if (!isMusicPlaying) {
+    audioElement.src = "Asake_ft_Wizkid_-_MMS.mp3";
+    audioElement.play();
+    isMusicPlaying = true;
+
+}
+clearPopup()
+   
+}
+
+
+    </script>
 </body>
 </html>
