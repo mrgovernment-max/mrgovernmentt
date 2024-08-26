@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="sell.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Product</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sell Your Product</h1>
+        <form action="/submit-product" method="POST" enctype="multipart/form-data">
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Your Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Your Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+            <!-- Product Details -->
+            <div class="form-group">
+                <label for="description">Product Description:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <p>
+                <h3>Product Description Should Contain</h3>
+
+<b>Product Name :</b> Enter the name of the Product. <br>
+
+
+<b>Years Used :</b> Specify how many years the product has been used. Example: 2 years of usage. <br>
+
+<b>Functionality Level :</b> Describe the current functionality of the product. Example: Fully functional, minor issues, not working. <br>
+
+
+<b>Brand Description :</b> Provide details about the brand of the product. Example: Brand name, any notable features or reputation. <br>
+
+
+<b>Year Made :</b> Enter the year the product was manufactured. Example: 2020. <br>
+
+
+<b>Expiry Date / Best Before :</b> If applicable, provide the expiry date or best before date. Example: Expiry Date: June 2025 or Best Before: 06/2025. <br>
+
+
+<b>Availability :</b> Which type of sell availability is your product ready for  eg;sell,sell & rent,sell Only. <br>
+
+
+<b>Additional Information :</b> Include any other relevant details about the product. Example: Condition, special features, accessories included. <br><br>
+
+<b><em> NB: Money allocated for purchase of your product will be be held by us for 3 working days. <br>
+
+<details>
+    <summary>why this?  🤔</summary>
+    <p>This is to confirm from the buyers point of view if product functioning and other realative description is true .Money and Product is
+         Returned to respective owners otherwise.IN simpler terms ..Incase a buyer asks for a REFUND</p>
+</details>
+
+   <br>
+
+
+
+            </p>
+
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+                <h2>Price Range</h2>
+                <div class="price-range">
+                <input type="number"> to <input type="number">
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label for="video">Upload a Video (*):</label>
+                <input type="file" id="video" name="video" accept="video/*">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Upload Product Images (*):</label>
+                <input type="file" id="image" name="image[]" accept="image/*" multiple>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit Product">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Define the reason function first
+        const reason = () => {
+            // Get all elements with the class name 'basic-button'
+            const buttons = document.getElementsByClassName("basic-button");
+            
+            // Loop through each button and set the text content on mouseover
+            for (let button of buttons) {
+                button.textContent = '';
+            }
+        };
+    
+        // Get all elements with the class name 'basic-button'
+        const buttons = document.getElementsByClassName("basic-button");
+        
+        // Add the mouseover event listener to each button
+        for (let button of buttons) {
+            button.addEventListener('mouseover', reason);
+        }
+    </script>
+    
+
+</body>
+</html>

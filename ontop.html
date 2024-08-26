@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="ontop.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontop</title>
+</head>
+<body>
+    <div id="main-container">
+        <button onclick="showPopup()" id="music-question-btn"> background music?</button>
+
+        <div id="overlay"></div>
+        <div id="pop-up">
+            <p>Like Music?</p>
+            <button onclick="Playingmusic()" id="yes-btn">Yes</button>
+            <button onclick="stopPlayingmusic()" id="no-btn">No</button>
+        </div>
+
+        <div id="dropdown">
+            <button id="dropbtn">Explore Product</button>
+            <select name="cars" id="cars">
+                <option value="car1">Chevrolet</option>
+                <option value="car2">Lambo</option>
+                <option value="car3">Rolls-Royce</option>
+                <option value="car4">Toyota</option>
+                <option value="car5">4x4</option>
+            </select>
+        </div>
+        <div id="text">
+            <p id="name">Select product and click "Explore Product"</p>
+        </div>
+    </div>
+
+    <div id="car-display">
+        <audio id="audio" src=""></audio>
+        <video id="video" src="" loop muted>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <footer>
+        <div id="first-container">
+            <section id="first-sub"></section>
+            <section id="second-sub"></section>
+        </div>
+    </footer>
+
+  
+    <script>
+        class Deal {
+            constructor(name, number, location, priceRange, availability) {
+                this.name = name;
+                this.number = number;
+                this.location = location;
+                this.priceRange = priceRange;
+                this.availability = availability;
+            }
+        }
+
+        const Emmanuel = new Deal("Emman", '0559220886', "Bedford", "$23,000.00 - $25,000.00", "Rent and Sell");
+        const Prince = new Deal("Prince", '02459220889', "Berekum", "$20,000.00 - $23,500.00", "Sell Only");
+        const Paa = new Deal("Paa", '0569220889', "Sunyani", "$90,000.00 - $93,500.00", "Sell Only");
+
+        document.getElementById("dropbtn").addEventListener('click', displayCars);
+
+        let isMusicPlaying = false;
+
+        function displayCars() {
+            const selectedCar = document.getElementById("cars").value;
+           
+            const videoElement = document.getElementById("video");
+            const carName = document.getElementById("name");
+            const sellerDetails = document.getElementById("second-sub");
+            const product = document.getElementById("first-sub");
+          
+
+            
+
+            switch (selectedCar) {
+                case 'car1':
+                    videoElement.src = "car1.mp4";
+                    carName.innerHTML = "Chevrolet";
+                    product.innerHTML = `
+                        <h1>DESCRIPTION</h1>
+                        <p>The 2024 Chevrolet Malibu is a stylish and affordable midsize sedan starting at approximately $25,000.00. Features a turbocharged engine, advanced safety technology, and a modern infotainment system. Known for its blend of comfort and performance, the Malibu offers excellent value for those seeking a reliable and well-equipped vehicle.</p>
+                        <h1>PRICING</h1>
+                        <h3>$25,000.00</h3>`;
+                    sellerDetails.innerHTML = `
+                        <h1>Seller Details</h1>
+                        <p>Name: ${Emmanuel.name}</p>
+                        <p>Tell.Number: ${Emmanuel.number}</p>
+                        <p>Location: ${Emmanuel.location}</p>
+                        <p>Price Range: ${Emmanuel.priceRange}</p>
+                        <p>Availability: ${Emmanuel.availability}</p>`;
+                    break;
+
+                case 'car2':
+                    videoElement.src = "car2.mp4";
+                    carName.innerHTML = "Lambo";
+                    product.innerHTML = `
+                        <h1>DESCRIPTION</h1>
+                        <p>Lamborghini, an emblem of automotive excellence, epitomizes power, precision, and prestige. Each Lamborghini model is a symphony of engineering brilliance, sculpted with aerodynamic mastery. From the iconic Aventador to the sleek Huracán, these supercars redefine speed, turning every road into a canvas for adrenaline-fueled artistry. Owning a Lamborghini is not just about driving; it is about embracing a legacy—a roaring testament to human ingenuity and unbridled passion.</p>
+                        <h1>PRICING</h1>
+                        <h3>$22,000.00</h3>`;
+                    sellerDetails.innerHTML = `
+                        <h1>Seller Details</h1>
+                        <p>Name: ${Prince.name}</p>
+                        <p>Tell.Number: ${Prince.number}</p>
+                        <p>Location: ${Prince.location}</p>
+                        <p>Price Range: ${Prince.priceRange}</p>
+                        <p>Availability: ${Prince.availability}</p>`;
+                    break;
+
+                case 'car3':
+                    videoElement.src = "car3.mp4";
+                    carName.innerHTML = "Rolls-Royce";
+                    product.innerHTML = `
+                        <h1>DESCRIPTION</h1>
+                        <p>Rolls-Royce, an enduring symbol of automotive excellence, transcends mere transportation. The Spirit of Ecstasy, perched gracefully on the hood, embodies elegance and aspiration. Rolls-Royce cabins are unparalleled, adorned with the finest leathers and woods. Attention to detail is an art form—the stitching, veneers, and personalized touches elevate luxury. Rolls-Royce is not just about cars; it is about legacy, craftsmanship, and the pursuit of perfection.</p>
+                        <h1>PRICING</h1>
+                        <h3>$92,000.00</h3>`;
+                    sellerDetails.innerHTML = `
+                        <h1>Seller Details</h1>
+                        <p>Name: ${Paa.name}</p>
+                        <p>Tell.Number: ${Paa.number}</p>
+                        <p>Location: ${Paa.location}</p>
+                        <p>Price Range: ${Paa.priceRange}</p>
+                        <p>Availability: ${Paa.availability}</p>`;
+                    break;
+
+                case 'car4':
+                    videoElement.src = "car4.mp4";
+                    carName.innerHTML = "Toyota";
+                    break;
+
+                case 'car5':
+                    videoElement.src = "car5.mp4";
+                    carName.innerHTML = "4x4";
+                    break;
+
+                default:
+                    console.log("Car not recognized");
+                    return;
+            }
+
+            videoElement.setAttribute("autoplay", true);
+        }
+
+        function showPopup(){
+            const popup = document.getElementById("pop-up");
+            popup.style.display = "inline";
+            const overlay = document.getElementById("overlay");
+            overlay.style.display = "inline";
+        }
+
+function stopPlayingmusic(){
+    const audioElement = document.getElementById("audio");
+    audioElement.pause();
+    const musicButton =document.getElementById("music-question-btn");
+    musicButton.style.display = "none";
+    clearPopup()
+   
+}
+
+function clearPopup(){
+    const popup = document.getElementById("pop-up");
+            popup.style.display = "none";
+            const overlay = document.getElementById("overlay");
+            overlay.style.display = "none";
+}
+
+
+function Playingmusic(){
+    const audioElement = document.getElementById("audio");
+    
+    audioElement.setAttribute("loop", true);
+
+if (!isMusicPlaying) {
+    audioElement.src = "Asake_ft_Wizkid_-_MMS.mp3";
+    audioElement.play();
+    isMusicPlaying = true;
+
+}
+clearPopup()
+   
+}
+
+
+    </script>
+</body>
+</html>
